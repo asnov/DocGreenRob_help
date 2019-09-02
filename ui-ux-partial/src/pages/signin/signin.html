@@ -1,0 +1,53 @@
+<ion-header>
+	<ion-navbar color="bgbtn">
+		<ion-title>Login</ion-title>
+	</ion-navbar>
+</ion-header>
+<ion-content padding>
+	<div class="signin_container">
+		<div class="main_image">
+			<img src="assets/imgs/logo.png" />
+		</div>
+		<div class="main_cont">
+			<div class="userCont">
+				<ion-input 
+						   type="text" 
+						   [(ngModel)]="userInfo.email" 
+						   placeholder="Email..." 
+						   class="USER-NAME" 
+						   (click)="clearContent()"></ion-input>
+			</div>
+			<div class="userCont">
+				<ion-input 
+						   class="PASSWORD"
+						   [type]="passwordType" 
+						   [(ngModel)]="userInfo.pwd" 
+						   placeholder="Password..."></ion-input>
+				<ion-icon [name]="passwordIcon" (click)="hideShowPassword()"></ion-icon>
+			</div>
+			<div class="signin_signinbtn">
+				<button ion-button (click)="signinUser()" class="LOGIN">
+					Log In
+				</button>
+			</div>
+			<div class="facebook_signinbtn">
+				<button ion-button (click)="signinWithFacebook()">
+					Login with Facebook
+				</button>
+			</div>
+			<div class="google_signinbtn">
+				<button ion-button (click)="signinWithGoogle()">
+					Login with Google
+				</button>
+			</div>
+			<div class="signin_signupbtn">
+				<span (click)="gotoResetPage()">
+					Forgot Password?/
+				</span>
+				<span (click)="registerUser()" class="register">
+					Sign Up
+				</span>
+			</div>
+		</div>
+	</div>
+</ion-content>

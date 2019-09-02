@@ -1,0 +1,19 @@
+<ion-split-pane>
+	<ion-menu type="overlay" [content]="content">
+		<ion-content>
+			<div class="topInfo" (click)="viewProfile()">
+				<div class="topProIcon"><img src="{{photoUrl}}" class="profilePhoto"></div>
+				<div class="proName">{{displayName}}</div>
+			</div>
+			<ion-list>
+				<div *ngFor="let p of pages" (click)="openPage(p)" style="border-top: 1px solid #ddd;" class="sidemenuItems {{p.class}}">
+					<button menuClose ion-item class="menubtn">
+						<img src="{{p.image}}" class="imgSize">
+						<span class="navTxt"> {{p.title}}</span>
+					</button>
+				</div>
+			</ion-list>
+		</ion-content>
+	</ion-menu>
+	<ion-nav [root]="rootPage" main #content></ion-nav>
+</ion-split-pane>

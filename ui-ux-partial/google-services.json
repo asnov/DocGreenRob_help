@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "71576110052",
+    "firebase_url": "https://itt-content.firebaseio.com",
+    "project_id": "itt-content",
+    "storage_bucket": "itt-content.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:71576110052:android:b08fb311f6630828",
+        "android_client_info": {
+          "package_name": "com.cge.myassets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "71576110052-t2esproke5thfqigdmv2oslbm4mmnhtb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDn8cen6ITq7Z9bwveVaJT34YuC5LWnnpg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "71576110052-t2esproke5thfqigdmv2oslbm4mmnhtb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
