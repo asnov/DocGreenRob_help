@@ -10,18 +10,18 @@
 		</div>
 		<div class="main_cont">
 			<div class="userCont">
-				<ion-input 
-						   type="text" 
-						   [(ngModel)]="userInfo.email" 
-						   placeholder="Email..." 
-						   class="USER-NAME" 
+				<ion-input
+						   type="text"
+						   [(ngModel)]="userInfo.email"
+						   placeholder="Email..."
+						   class="USER-NAME"
 						   (click)="clearContent()"></ion-input>
 			</div>
 			<div class="userCont">
-				<ion-input 
+				<ion-input
 						   class="PASSWORD"
-						   [type]="passwordType" 
-						   [(ngModel)]="userInfo.pwd" 
+						   [type]="passwordType"
+						   [(ngModel)]="userInfo.pwd"
 						   placeholder="Password..."></ion-input>
 				<ion-icon [name]="passwordIcon" (click)="hideShowPassword()"></ion-icon>
 			</div>

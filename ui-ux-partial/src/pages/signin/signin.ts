@@ -33,7 +33,10 @@ export class SigninPage {
 	}
 
 	signinUser() {
-		this.navCtrl.push(HomePage);
+		const navCtrl = this.navCtrl;
+		setTimeout(function() {
+			navCtrl.push(HomePage);
+		},10000);
 	}
 
 	gotoResetPage() {
@@ -49,14 +52,14 @@ export class SigninPage {
 		console.log("hideShowPassword", this.passwordType, this.passwordIcon);
 	}
 
-	//sign in with facebook 
+	//sign in with facebook
 	signinWithFacebook() {
 	}
 
 	getUserDetail(userid) {
 	}
 
-	//sign in with google 
+	//sign in with google
 	signinWithGoogle() {
 		console.log('signin with google');
 	}
