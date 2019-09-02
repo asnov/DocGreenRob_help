@@ -8,8 +8,8 @@ describe('App', () => {
     });
 
     describe('Sign-In page', () => {
-        beforeEach(() => {
-            page.navigateTo('/');
+        beforeEach(async () => {
+            await page.navigateTo('/');
         });
 
         it('should have a title saying Ionic App', async () => {
