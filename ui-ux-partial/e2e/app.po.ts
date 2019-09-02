@@ -1,41 +1,42 @@
-import { browser, by, element, $ } from 'protractor';
+import { browser, by, element, $, $$, ExpectedConditions as EC } from 'protractor';
 
 export class Page {
 
-	navigateTo(destination) {
-		return browser.get(destination);
-	}
+    navigateTo(destination) {
+        return browser.get(destination);
+    }
 
-	getTitle() {
-		return browser.getTitle();
-	}
-	
-	// doTest(){
-	// 	element(by.className('USER-NAME')).sendKeys('test-owner');
-	// 	element(by.className('PASSWORD')).sendKeys('abc@123');
-	// 	return element(by.className('LOGIN')).click();
-	// }
+    getTitle() {
+        return browser.getTitle();
+    }
 
-	// getElementTextByClass(){
-	// 	return element(by.className('TITLE')).getText();
-	// }
+    enterText(className: string, value: string) {
+        return $(`.${className} input`).sendKeys(value);
+        //return element(by.className(className)).sendKeys(value);
+    }
 
+    clickButton(className: string) {
+        return element(by.className(className)).click();
+    }
 
-	enterText(className: string, value: string) {
-		return $(`.${className} input`).sendKeys(value);
-		//return element(by.className(className)).sendKeys(value);
-	}
+    getElementTextByClass(className: string) {
+        return element(by.className(className)).getText();
+    }
 
-	clickButton(className:string){
-		return element(by.className(className)).click();
-	}
+    getPageOneTitleText() {
+        return element(by.tagName('page-page1')).element(by.tagName('ion-title')).element(by.css('.toolbar-title')).getText();
+    }
 
-	getElementTextByClass(className:string){
-		return element(by.className(className)).getText();
-	}
+	getPageName = () => this.getElementTextByClass('TITLE');
+	getPageTitle = () => $$('ion-title').last().getText();
+    sleep = (mseconds: number) => browser.driver.sleep(mseconds);
 
-	getPageOneTitleText() {
-		return element(by.tagName('page-page1')).element(by.tagName('ion-title')).element(by.css('.toolbar-title')).getText();
-	}
-	
+    /**
+     * waiting for particular title to appear on the page
+     * @param title
+     */
+	waitForTheTitle(title: string) {
+        return browser.driver.wait(EC.textToBePresentInElement($$('ion-title').last(), title), 10000);
+    }
+
 }

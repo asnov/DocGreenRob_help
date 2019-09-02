@@ -1,42 +1,34 @@
-import { Page } from './app.po';
+import { Page } from './signin.po';
 
 describe('App', () => {
-	let page: Page;
+    let page: Page;
 
-	beforeEach(() => {
-		page = new Page();
-	});
+    beforeEach(() => {
+        page = new Page();
+    });
 
-	describe('Sign-In page', () => {
-		beforeEach(() => {
-			page.navigateTo('/');
-		});
+    describe('Sign-In page', () => {
+        beforeEach(() => {
+            page.navigateTo('/');
+        });
 
-		it('should have a title saying Ionic App', async () => {
-			await page.getTitle().then(x => {
-				expect(x).toEqual('Ionic App');
-			});
-		});
+        it('should have a title saying Ionic App', async () => {
+            const title = await page.getTitle();
+            expect(title).toEqual('Ionic App');
+        });
 
-		it('should login a valid user', async () => {
-			//page.doTest();
-			
-			// page.getElementTextByClass().then(x => {
-			// 	expect(x).toEqual('Home');
-			// });
+        it('should login a valid user', async () => {
+            await page.enterEmail('test-owner');
+            await page.enterPassword('abc@123');
+            await page.clickLogin();
 
-			await page.enterText('USER-NAME', 'test-owner');
-			await page.enterText('PASSWORD', 'abc@123');
-			await page.clickButton('LOGIN');
+            //need to wait to give page time to load...
+            // await page.waitForTheTitle('Home');
+            // await page.sleep(5000);
 
-			//need to wait to give page time to load...
-			setTimeout(async function () {
-				await page.getElementTextByClass('TEXT').then(x => {
-					expect(x).toEqual('Home');
-				});
-			}, 2000);
+            const title = await page.getPageTitle();
+            expect(title).toEqual('Home');
+        });
 
-		});
-		
-	})
+    })
 });
