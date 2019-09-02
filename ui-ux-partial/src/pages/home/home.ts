@@ -84,7 +84,7 @@ export class HomePage {
 
 	// save mail address
 	saveMail(_availableUserType) {
-		
+
 
 	}
 
@@ -93,7 +93,7 @@ export class HomePage {
 	}
 
 	populateCustomerForm(properties: any[]) {
-		
+
 	}
 
 	//show /hide property div
@@ -109,7 +109,7 @@ export class HomePage {
 	}
 
 	toggleFormSelectionView(selectedAvailableUserType) {
-		
+
 	}
 
 	//update default propety
@@ -127,7 +127,7 @@ export class HomePage {
 
 	//on selecct of a property from the dropdown
 	onPropertySelect(event, pageType) {
-		
+
 	}
 
 	//get property default status
@@ -136,7 +136,7 @@ export class HomePage {
 	}
 
 	getProperties(userType) {
-		
+
 	}
 
 	//add a new property into the System
@@ -169,48 +169,48 @@ export class HomePage {
 		if (_availableUserType.name.toLowerCase() === 'owner' ||
 			_availableUserType.name.toLowerCase() === 'gamer') {
 			//ininitiliaze the profiles when its a new property
-			this.userDetails
-				.postProperty(postPropertyObj)
-				.subscribe(async (response: any) => {
-					await this.getUserMailingAddressAndProperties();
-					this.addNewPropertyUpdate();
-					this.alert.showToast("Property was updated.", this.constants.ToastColorGood);
-				});
+			// this.userDetails
+			// 	.postProperty(postPropertyObj)
+			// 	.subscribe(async (response: any) => {
+			// 		await this.getUserMailingAddressAndProperties();
+			// 		this.addNewPropertyUpdate();
+			// 		this.alert.showToast("Property was updated.", this.constants.ToastColorGood);
+			// 	});
 		} else if (_availableUserType.name.toLowerCase() !== 'owner' &&
 			_availableUserType.name.toLowerCase() !== 'gamer') {
-			this.userDetails
-				.postProperty(postPropertyObj)
-				.subscribe(async (response: any) => {
-					this.loading.closeSimpleLoading();
-					await this.getUserMailingAddressAndProperties();
-
-					this.loading.presentSimpleLoading('getting your information and properties/customers...');
-					this.addNewPropertyUpdate();
-					// Not sure if this belongs here
-					// ------>
-					this.userDetails
-						.getCompanyInformation(this.userID, _availableUserType.id)
-						.subscribe((response: any) => {
-							if (response) {
-								this.ownerMailingAddressState = true;
-							}
-
-							let streetAddress2 = response.StreetAddress2;
-
-							this.topForm.patchValue({
-								Name: response.Name.trim(),
-								Id: response.Id,
-								StreetAddress1: response.StreetAddress1.trim(),
-								StreetAddress2: (streetAddress2 !== undefined && streetAddress2 !== null && streetAddress2 !== '') ? streetAddress2.trim() : '',
-								City: response.City.trim(),
-								Zip: response.Zip.trim(),
-								State: response.State
-							});
-							this.loading.closeSimpleLoading();
-							this.alert.showToast("Property was updated.", this.constants.ToastColorGood);
-						});
-					// ------>
-				});
+			// this.userDetails
+			// 	.postProperty(postPropertyObj)
+			// 	.subscribe(async (response: any) => {
+			// 		this.loading.closeSimpleLoading();
+			// 		await this.getUserMailingAddressAndProperties();
+			//
+			// 		this.loading.presentSimpleLoading('getting your information and properties/customers...');
+			// 		this.addNewPropertyUpdate();
+			// 		// Not sure if this belongs here
+			// 		// ------>
+			// 		this.userDetails
+			// 			.getCompanyInformation(this.userID, _availableUserType.id)
+			// 			.subscribe((response: any) => {
+			// 				if (response) {
+			// 					this.ownerMailingAddressState = true;
+			// 				}
+			//
+			// 				let streetAddress2 = response.StreetAddress2;
+			//
+			// 				this.topForm.patchValue({
+			// 					Name: response.Name.trim(),
+			// 					Id: response.Id,
+			// 					StreetAddress1: response.StreetAddress1.trim(),
+			// 					StreetAddress2: (streetAddress2 !== undefined && streetAddress2 !== null && streetAddress2 !== '') ? streetAddress2.trim() : '',
+			// 					City: response.City.trim(),
+			// 					Zip: response.Zip.trim(),
+			// 					State: response.State
+			// 				});
+			// 				this.loading.closeSimpleLoading();
+			// 				this.alert.showToast("Property was updated.", this.constants.ToastColorGood);
+			// 			});
+			// 		// ------>
+			// 	});
 		}
 
 
@@ -228,5 +228,5 @@ export class HomePage {
 
 	//get user notifications
 	getNotififications() {}
-	
+
 	}
