@@ -78,8 +78,6 @@
 	"devDependencies": {
 		"@ionic/app-scripts": "^3.2.4",
 		"@types/jasmine": "^3.4.0",
-		"@types/jest": "^24.0.18",
-		"@types/mocha": "^5.2.7",
 		"@types/node": "^12.7.3",
 		"html-loader": "^0.5.5",
 		"istanbul-instrumenter-loader": "^3.0.1",
