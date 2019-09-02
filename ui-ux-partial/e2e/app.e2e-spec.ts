@@ -13,8 +13,7 @@ describe('App', () => {
         });
 
         it('should have a title saying Ionic App', async () => {
-            const title = await page.getTitle();
-            expect(title).toEqual('Ionic App');
+            expect(await page.getTitle()).toEqual('Ionic App');
         });
 
         it('should login a valid user', async () => {
@@ -26,8 +25,7 @@ describe('App', () => {
             // await page.waitForTheTitle('Home');
             // await page.sleep(5000);
 
-            const title = await page.getPageTitle();
-            expect(title).toEqual('Home');
+            expect(await page.getPageTitle()).toEqual('Home');
         });
 
     })
